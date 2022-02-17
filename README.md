@@ -1,6 +1,6 @@
 # EasyComp
 
-# Instruction on how to clone this project
+# How to Clone this Project
 1. Make sure your xampp or wampp already on latest version because this project use Laravel 6.0 and require PHP 7.2.0
 2. Open project folder and run git bash terminal
 3. Run this following command in bash terminal 
