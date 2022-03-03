@@ -21,7 +21,7 @@
                 <nav class="-mx-2">
                     <a href="{{ route('home') }}" class="text-lg mx-2 text-white hover:text-pink-500 transition">Home</a>
                     <a href="{{ route('about') }}" class="text-lg mx-2 text-white hover:text-pink-500 transition">About</a>
-
+ 
                     @auth
                     <!-- DROPDOWN MENU-->
                         <div class="ml-2 relative inline-block text-left dropdown">
@@ -40,8 +40,12 @@
                                         <p class="text-sm font-medium leading-5 text-gray-900 truncate">{{ auth()->user()->email }}</p>
                                     </div>
                                     <div class="py-1">
-                                        <a href="{{ route('dashboard') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
-                                        
+                                        @if(auth()->user()->role_id == 1)
+                                            <a href="{{ route('competitions.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
+                                        @endif
+                                        @if(auth()->user()->role_id == 2)
+                                            <a href="{{ route('user.dashboard') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
+                                        @endif
                                     </div>
                                     <div class="py-1">
                                         <form action="{{ route('logout') }}" method="POST">
@@ -55,11 +59,12 @@
                                 </div>
                             </div>
                         </div>
+                    <!-- https://tailwindcomponents.com/component/pure-css-dropdown-using-focus-within-with-animation-->
+                    <!-- DROPDOWN MENU--> 
                     @else
                         <a href="{{ route('login') }}" class="text-lg mx-2 text-white hover:text-pink-500 transition">Login</a>
                     @endauth
-                    <!-- https://tailwindcomponents.com/component/pure-css-dropdown-using-focus-within-with-animation-->
-                    <!-- DROPDOWN MENU--> 
+                    
                 </nav>
 
                 
