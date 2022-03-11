@@ -4,7 +4,7 @@
     <section class="relative min-h-screen flex items-center">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl sm:text-8xl">Compete with <span class="text-pink-500">Ease</span></h2>
-            <h3 class="text-2xl sm:text-4xl italic">with Rasberg</h3>
+            <h3 class="text-2xl sm:text-4xl italic">with EasyComp</h3>
         </div>
 
         <div class="absolute bottom-0 left-0 right-0 p-20">
@@ -66,7 +66,7 @@
     <section class="py-20">
         <div class="max-w-screen-md mx-auto">
             <h3 class="text-4xl font-bold mb-6">Where to learn?</h3>
-            <h3 class="text-xl mb-6">Learn to code on youtube with one of my channels!</h3>
+            <h3 class="text-xl mb-6">Learn to code on my educational website !</h3>
             <div class="-mx-2 sm:flex">
                 <a href="{{ url('https://thebiggestnose.com') }}" target="_blank" rel="noopener noreferrer" 
                 class="block bg-pink-500 text-center py-2 px-4 rounded hover:bg-purple-500 transition mx-2 mb-3 sm:mb-0">

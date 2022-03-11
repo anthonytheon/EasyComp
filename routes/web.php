@@ -43,7 +43,7 @@ Route::group(['middleware' => 'admin'], function() {
         'namespace' => 'App\Http\Controllers\Admin',
         //'as' => 'admin.',
     ], function() {
-        Route::get('dashboard', 'AdminDashboardController@index')->name('admin.dashboard');
+        Route::resource('competitions', 'CompetitionController');
     });
     
 });
@@ -54,7 +54,7 @@ Route::group(['middleware' => 'user'], function() {
         'namespace' => 'App\Http\Controllers\User',
         //'as' => 'admin.',
     ], function() {
-        Route::get('dashboard', 'UserDashboardController@index')->name('user.dashboard');
+        Route::get('dashboard', 'DashboardController@index')->name('user.dashboard');
     });
     
 });

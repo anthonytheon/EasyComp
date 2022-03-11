@@ -15,9 +15,11 @@ class CreateCompetitionsTable extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->string('category');
-            $table->dateTime('date');
+            $table->string('date');
+            $table->string('description');
             $table->timestamps();
         });
     }
