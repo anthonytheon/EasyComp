@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Admin\TestController;
+use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\User\UserDashboardController;
+use App\Http\Controllers\User\UserAppealController;
+use App\Http\Controllers\Admin\CompetitionController;
+use App\Http\Controllers\Admin\AdminAppealController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +35,6 @@ Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::get('register', [\App\Http\Controllers\Auth\RegisterController::class, 'index'])->middleware('guest')->name('register');
 Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'store'])->name('store');
 
-//Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-
 Route::group(['middleware' => 'admin'], function() {
     Route::group([
         'prefix' => 'admin',
@@ -44,6 +42,9 @@ Route::group(['middleware' => 'admin'], function() {
         //'as' => 'admin.',
     ], function() {
         Route::resource('competitions', 'CompetitionController');
+        Route::get('competitions/{appeal}/accept', [AdminAppealController::class, 'show'])->name('admins.show');
+        Route::delete('competitions/{appeal}/reject', [AdminAppealController::class, 'destroy'])->name('admins.destroy');
+       
     });
     
 });
@@ -54,15 +55,15 @@ Route::group(['middleware' => 'user'], function() {
         'namespace' => 'App\Http\Controllers\User',
         //'as' => 'admin.',
     ], function() {
-        Route::get('dashboard', 'DashboardController@index')->name('user.dashboard');
+        Route::get('dashboard', [UserController::class, 'index'])->name('users.index');
+        Route::get('competitions/{competition}', [UserController::class, 'show'])->name('users.show');
+        Route::post('competitions/{competition}/appeal', [UserAppealController::class, 'store'])->name('users.appeal');
+        Route::delete('competitions/{competition}/appeal', [UserAppealController::class, 'destroy'])->name('users.appeal');
+        
     });
     
 });
 
-//Route::resource('admin/tests', 'App\Http\Controllers\Admin\TestController');
-
-//Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
-//Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 
 
 

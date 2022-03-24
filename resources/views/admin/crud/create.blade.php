@@ -3,7 +3,7 @@
 @section('page-content')
     <section class="py-20 min-h-screen flex items-center">
         <div class="max-w-screen-lg mx-auto">
-            <form class="w-full max-w-lg" method="POST" action="{{ route('competitions.store') }}">
+            <form class="w-full max-w-lg" method="POST" enctype="multipart/form-data" action="{{ route('competitions.store') }}">
                 @csrf
                 
                 <div class="md:flex md:items-center mb-6">
@@ -88,29 +88,23 @@
                     </div>
                   </div>
 
+                  <div class="md:flex md:items-center mb-6">
+                    <div class="md:w-1/3">
+                      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="poster">
+                          Poster
+                      </label>
+                    </div>
+                    <div class="md:w-2/3">
+                      <input type="file" name="poster">
 
-                {{-- <div class="md:flex md:items-center mb-6">
-                  <div class="md:w-1/3">
-                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
-                      Password
-                    </label>
+                      @error('poster')
+                      <div class="invalid-feedback text-red-600">
+                          {{ $message }}
+                      </div>
+                      @enderror
+  
+                    </div>
                   </div>
-                  <div class="md:w-2/3">
-                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" type="password" placeholder="******************">
-                  </div>
-                </div> --}}
-
-
-                {{-- <div class="md:flex md:items-center mb-6">
-                  <div class="md:w-1/3"></div>
-                  <label class="md:w-2/3 block text-gray-500 font-bold">
-                    <input class="mr-2 leading-tight" type="checkbox">
-                    <span class="text-sm">
-                      Send me your newsletter!
-                    </span>
-                  </label>
-                </div> --}}
-
 
                 <div class="md:flex md:items-center">
                   <div class="md:w-1/3"></div>

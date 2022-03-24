@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Competition;
 use App\Models\User;
+use App\Models\Appeal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection;
 
 class CompetitionController extends Controller
 {
@@ -18,9 +18,7 @@ class CompetitionController extends Controller
      */
     public function index()
     {
-        //$this->authorize('index', $competition);
         $competitions = Competition::latest()->paginate(5);
-  
         
         return view('admin.dashboard', compact('competitions'));
     }
@@ -41,20 +39,32 @@ class CompetitionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Competition $competition)
+    public function store(Request $request)
     {
-        //dd(auth()->user()->name);
-
-        $data = $request->validate([
+        $request->validate([
             'name' => 'required|max:255',
             'category' => 'required',
             'date' => 'required|max:255',
-            'description' => 'required|max:255'
+            'description' => 'required',
+            'poster' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
-        $data['user_id'] = auth()->user()->id;
+        $user_id = auth()->user()->id;
+        $posterName = time() . '-' . $request->name . '.' . $request->poster->extension();
+
+        $request->poster->move(public_path('images'), $posterName);
         
-        Competition::create($data);
+        //Competition::create($data);
+
+        $competition = Competition::create([
+            'user_id' => $user_id,
+            'name' => $request->input('name'),
+            'category' => $request->input('category'),
+            'date' => $request->input('date'),
+            'description' => $request->input('description'),
+            'poster' => $posterName,
+
+        ]);
 
         return redirect()->route('competitions.index')->with('success', 'Success !');
     }
@@ -67,6 +77,8 @@ class CompetitionController extends Controller
      */
     public function show(Competition $competition)
     {
+        
+
         return view('admin.crud.show', compact('competition'));
     }
 
@@ -90,14 +102,20 @@ class CompetitionController extends Controller
      */
     public function update(Request $request, Competition $competition)
     {
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required|max:255',
             'category' => 'required',
             'date' => 'required|max:255',
-            'description' => 'required|max:255'
+            'description' => 'required|max:255', 
+            'poster' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
-  
-        $competition->update($request->all());
+
+        $posterName = time() . '-' . $request->name . '.' . $request->poster->extension();
+
+        $data['poster'] = $posterName;
+        $request->poster->move(public_path('images'), $posterName);
+
+        $competition->update($data);
   
         return redirect()->route('competitions.index')->with('success', 'Competition updated successfully');
     }

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-//use App\Models\Competition;
+use App\Models\Competition;
+//use App\Models\Request;
+use App\Models\Appeal;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -50,6 +52,11 @@ class User extends Authenticatable
 
     public function competitions(){
         return $this->hasMany(Competition::class);
+    }
+
+    public function appeals()
+    {
+        return $this->hasMany(Appeal::class);
     }
 
     public function isAdmin(){ // admin

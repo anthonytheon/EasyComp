@@ -25,6 +25,7 @@
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
                                     <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Appeal</th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
@@ -41,34 +42,39 @@
                                     </thead>
 
                                     <!-- COMPETITIONS LIST -->
-                                        <tbody class="bg-white divide-y divide-gray-200">
+                                        <tbody class="bg-white divide-y divide-gray-200"> 
                                             @foreach ($competitions as $competition)
-                                            @can('edit', $competitions)
+                                                @if (isset(Auth::user()->id) && Auth::user()->id == $competition->user_id)
                                                     <tr>
+                                                        @if ($competition->appeals->count() == 0)
+                                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-900">0</td>
+                                                        @else
+                                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-500">{{ $competition->appeals->where('appeal_status', '=', 0)->count() }}</td>
+                                                        @endif
+                                                        
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $competition->category }}</td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $competition->name }}</td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $competition->date }}</td>
-                                                    
-                                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                            <a href="{{ route('competitions.show', $competition->id) }}" class="text-green-600 hover:text-green-900">View</a>
-                                                        </td>
 
-                                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                            <a href="{{ route('competitions.edit', $competition->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                                        </td>
+                                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                                <a href="{{ route('competitions.show', $competition->id) }}" class="text-green-600 hover:text-green-900">View</a>
+                                                            </td>
 
-                                                        <td> 
-                                                            <form action="{{ route('competitions.destroy', $competition->id) }}" method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="bg-transparent hover:text-pink-900 text-pink-500 font-semibold hover:text-pink py-2 px-4">
-                                                                    Delete
-                                                                </button>
-                                                            </form>
-                                                        </td>
-                                                       
-                                                    </tr>
-                                            @endcan
+                                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                                <a href="{{ route('competitions.edit', $competition->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                            </td>
+
+                                                            <td> 
+                                                                <form action="{{ route('competitions.destroy', $competition->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="bg-transparent hover:text-pink-900 text-pink-500 font-semibold hover:text-pink py-2 px-4">
+                                                                        Delete
+                                                                    </button>
+                                                                </form>
+                                                            </td> 
+                                                    </tr> 
+                                                @endif      
                                             @endforeach
                                             {{ $competitions->links() }}
 
@@ -82,7 +88,7 @@
                 </div>
             <!-- TABLE END -->
             @else
-                <h4 class="text-lg text-center text-gray-200 mb-6 mt-14">There are no competitions</h3>
+                <h4 class="text-lg text-center text-gray-200 mb-6 mt-14">There are no competitions</h4>
             @endif
             
         </div>

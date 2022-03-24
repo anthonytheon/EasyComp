@@ -44,7 +44,7 @@
                                             <a href="{{ route('competitions.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
                                         @endif
                                         @if(auth()->user()->role_id == 2)
-                                            <a href="{{ route('user.dashboard') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
+                                            <a href="{{ route('users.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
                                         @endif
                                     </div>
                                     <div class="py-1">

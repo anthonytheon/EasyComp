@@ -30,7 +30,7 @@ class LoginController extends Controller
         if (Auth::attempt($admin)){
             return redirect()->route('competitions.index');
         } elseif (Auth::attempt($user)){
-            return redirect()->route('user.dashboard');
+            return redirect()->route('users.index');
         }
         
         // $credentials = $request->validate([
