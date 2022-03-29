@@ -53,7 +53,7 @@
                                                         @endif
                                                         
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $competition->category }}</td>
-                                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $competition->name }}</td>
+                                                        <td style="width:100px" class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $competition->name }}</td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $competition->date }}</td>
 
                                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

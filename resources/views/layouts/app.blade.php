@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EasyComp</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="{{ asset('js/app.js') }}"></script>
     <style>
         .dropdown:focus-within .dropdown-menu {
           opacity:1;
@@ -39,14 +40,31 @@
                                         <p class="text-black leading-5">Signed in as</p>
                                         <p class="text-sm font-medium leading-5 text-gray-900 truncate">{{ auth()->user()->email }}</p>
                                     </div>
+
+                                    {{-- START MENU ADMIN --}}
+
+                                    @if(auth()->user()->role_id == 1)
                                     <div class="py-1">
-                                        @if(auth()->user()->role_id == 1)
-                                            <a href="{{ route('competitions.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
-                                        @endif
-                                        @if(auth()->user()->role_id == 2)
-                                            <a href="{{ route('users.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
-                                        @endif
+                                        <a href="{{ route('competitions.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
                                     </div>
+                                    <div class="py-1">
+                                        <a href="{{ route('categories.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Category</a>
+                                    </div>
+                                    @endif
+
+                                    {{-- END MENU ADMIN --}}
+
+                                    {{-- START MENU USER --}}
+                                    @if(auth()->user()->role_id == 2)
+                                    <div class="py-1">
+                                        <a href="{{ route('users.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Dashboard</a>
+                                    </div>
+                                    @endif
+
+                                    {{-- END MENU USER --}}
+                                    
+
+
                                     <div class="py-1">
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf

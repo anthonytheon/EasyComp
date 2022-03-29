@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Competition;
 use App\Models\User;
 use App\Models\Appeal;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +31,8 @@ class CompetitionController extends Controller
      */
     public function create()
     {
-        return view('admin.crud.create');
+        $categories = Category::all();
+        return view('admin.crud.create', compact('categories'));
     }
 
     /**
@@ -42,10 +44,10 @@ class CompetitionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:100',
             'category' => 'required',
-            'date' => 'required|max:255',
-            'description' => 'required',
+            'date' => 'required',
+            'description' => 'required|max:255',
             'poster' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 

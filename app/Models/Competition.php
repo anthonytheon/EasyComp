@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
-//use App\Models\Request;
+use App\Models\Category;
 use App\Models\Appeal;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -34,9 +34,11 @@ class Competition extends Model
         return $this->hasMany(Appeal::class);
     }
 
-    // public function requests()
-    // {
-    //     return $this->hasMany(Request::class);
-    // }
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    
 
 }

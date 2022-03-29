@@ -42,6 +42,7 @@ Route::group(['middleware' => 'admin'], function() {
         //'as' => 'admin.',
     ], function() {
         Route::resource('competitions', 'CompetitionController');
+        Route::resource('categories', 'CategoryController');
         Route::get('competitions/{appeal}/accept', [AdminAppealController::class, 'show'])->name('admins.show');
         Route::delete('competitions/{appeal}/reject', [AdminAppealController::class, 'destroy'])->name('admins.destroy');
        

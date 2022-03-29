@@ -5,7 +5,7 @@
         <div class="max-w-screen-lg mx-auto">
             <h3 class="text-4xl text-center text-gray-200 mb-6">{{ $competition->name }}</h3>
             <img src="{{ asset('images/' . $competition->poster) }}" class="object-contain h-48 w-96 mb-8 mt-8 shadow-xl" alt="">
-            <h4 class="text-lg text-center text-gray-200 mb-6">{{ $competition->date }}</h3>
+            <h4 class="text-lg text-center text-gray-200 mb-6">Due date : {{ $competition->date }}</h3>
             <p class="mb-3">
                 {{ $competition->description }}
             </p>

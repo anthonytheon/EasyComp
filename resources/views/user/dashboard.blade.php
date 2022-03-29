@@ -30,7 +30,7 @@
 
                                     <time class="block mb-2 text-sm text-gray-600" datetime="2019-01-01">{{ $competition->date }}</time>
                                     <p class="text-gray-900">
-                                        {{ $competition->description }}
+                                        {{ Str::limit($competition->description, 100) }}
                                     </p>
                                 </div>
                             </div>
