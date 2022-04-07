@@ -8,6 +8,12 @@
                 <p class="text-sm pt-2">Please login.</p>
             </div>
         @endif
+        @if(session()->has('loginError'))
+            <div class="bg-red-100 border-t border-b border-red-500 text-red-700 px-4 py-3 mb-4" role="alert">
+                <p class="font-bold">{{ session('loginError') }}</p>
+                <p class="text-sm pt-2">Please try again</p>
+        </div>
+        @endif
         
         <section>
             <h3 class="text-black font-bold text-2xl">Welcome to EasyComp</h3>

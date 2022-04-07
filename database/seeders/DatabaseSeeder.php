@@ -5,7 +5,10 @@ namespace Database\Seeders;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Faculty;
+use App\Models\Major;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,12 +21,28 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+        $adminpassword = '12345';
+
         Role::create([
             'name' => 'Admin'
         ]);
 
         Role::create([
             'name' => 'User'
+        ]);
+
+        // name email password role_id id_number gender year_start university faculty major
+        User::create([
+            'name' => 'adminanthony',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make($adminpassword),
+            'role_id' => 1,
+            'id_number' => '20417019',
+            'gender' => 'Other',
+            'year_start' => '2021',
+            'university' => 'Ciputra University',
+            'faculty' => 'Information Technology',
+            'major' => 'IMT',
         ]);
 
         Category::create([
@@ -44,20 +63,18 @@ class DatabaseSeeder extends Seeder
             intranet (a private network).'
         ]);
 
+        Faculty::create([
+            'faculty_name' => 'Information Technology'
+        ]);
 
-        // User::create([
-        //     'name' => 'John Doe',
-        //     'email' => 'admin@gmail.com',
-        //     'role_id' => 1,
-        //     'password' => '$2y$10$E3OjImMSjPTG6J4SLgFWte1wyH7lZwEtfPiahDdT2LyZG/RjqTWuq',
-        // ]);
+        Major::create([
+            'major_name' => 'IMT'
+        ]);
 
-        // User::create([
-        //     'name' => 'John Doe',
-        //     'email' => 'user@gmail.com',
-        //     'role_id' => 2,
-        //     'password' => '$2y$10$E3OjImMSjPTG6J4SLgFWte1wyH7lZwEtfPiahDdT2LyZG/RjqTWuq',
-        // ]);
+        Major::create([
+            'major_name' => 'ISB'
+        ]);
+        
         
     }
 }

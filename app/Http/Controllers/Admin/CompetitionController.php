@@ -21,7 +21,7 @@ class CompetitionController extends Controller
     {
         $competitions = Competition::latest()->paginate(5);
         
-        return view('admin.dashboard', compact('competitions'));
+        return view('admin.competition.dashboard', compact('competitions'));
     }
 
     /**
@@ -32,7 +32,7 @@ class CompetitionController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.crud.create', compact('categories'));
+        return view('admin.competition.crud.create', compact('categories'));
     }
 
     /**
@@ -79,9 +79,7 @@ class CompetitionController extends Controller
      */
     public function show(Competition $competition)
     {
-        
-
-        return view('admin.crud.show', compact('competition'));
+        return view('admin.competition.crud.show', compact('competition'));
     }
 
     /**
@@ -92,7 +90,7 @@ class CompetitionController extends Controller
      */
     public function edit(Competition $competition)
     {
-        return view('admin.crud.edit', compact('competition'));
+        return view('admin.competition.crud.edit', compact('competition'));
     }
 
     /**

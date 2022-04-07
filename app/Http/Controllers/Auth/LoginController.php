@@ -33,17 +33,6 @@ class LoginController extends Controller
             return redirect()->route('users.index');
         }
         
-        // $credentials = $request->validate([
-        //     'email' => 'required|email:dns',
-        //     'password' => 'required'
-        // ]);
-
-        // if(Auth::attempt($credentials))
-        // {
-        //     $request->session()->regenerate();
-        //     return redirect()->intended('/dashboard');
-        // }
-        
         return back()->with('loginError', 'Login Failed !');
     }
 

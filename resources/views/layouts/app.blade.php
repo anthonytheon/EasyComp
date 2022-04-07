@@ -50,6 +50,15 @@
                                     <div class="py-1">
                                         <a href="{{ route('categories.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Category</a>
                                     </div>
+                                    <div class="py-1">
+                                        <a href="{{ route('user-management.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >User Management</a>
+                                    </div>
+                                    <div class="py-1">
+                                        <a href="{{ route('faculties.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Faculty Management</a>
+                                    </div>
+                                    <div class="py-1">
+                                        <a href="{{ route('majors.index') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Major Management</a>
+                                    </div>
                                     @endif
 
                                     {{-- END MENU ADMIN --}}

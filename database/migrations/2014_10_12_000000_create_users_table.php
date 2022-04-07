@@ -18,6 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->bigInteger('role_id')->default('0');
+            $table->integer('id_number');
+            $table->string('gender');
+            $table->integer('year_start');
+            $table->string('university');
+            $table->string('faculty');
+            $table->string('major');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

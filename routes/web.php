@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\UserAppealController;
 use App\Http\Controllers\Admin\CompetitionController;
 use App\Http\Controllers\Admin\AdminAppealController;
+use App\Http\Controllers\Admin\UserManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +44,22 @@ Route::group(['middleware' => 'admin'], function() {
     ], function() {
         Route::resource('competitions', 'CompetitionController');
         Route::resource('categories', 'CategoryController');
+        Route::resource('majors', 'MajorController');
+        Route::resource('faculties', 'FacultyController');
+        //Route::resource('user', 'UserManagementController');
+
+        // Accept or Reject User's Appeal
         Route::get('competitions/{appeal}/accept', [AdminAppealController::class, 'show'])->name('admins.show');
         Route::delete('competitions/{appeal}/reject', [AdminAppealController::class, 'destroy'])->name('admins.destroy');
+
+
+        Route::get('user-management', [UserManagementController::class, 'index'])->name('user-management.index');
+        Route::get('user-management/create', [UserManagementController::class, 'create'])->name('user-management.create');
+        Route::get('user-management/{user}', [UserManagementController::class, 'show'])->name('user-management.show');
+        Route::post('user-management', [UserManagementController::class, 'store'])->name('user-management.store');
+        Route::get('user-management/{user}/edit', [UserManagementController::class, 'edit'])->name('user-management.edit');
+        Route::post('user-management/{user}', [UserManagementController::class, 'update'])->name('user-management.update');
+        Route::delete('user-management/{user}', [UserManagementController::class, 'destroy'])->name('user-management.destroy');
        
     });
     
@@ -56,8 +71,11 @@ Route::group(['middleware' => 'user'], function() {
         'namespace' => 'App\Http\Controllers\User',
         //'as' => 'admin.',
     ], function() {
+        // User's Front Page / what they can do or see
         Route::get('dashboard', [UserController::class, 'index'])->name('users.index');
         Route::get('competitions/{competition}', [UserController::class, 'show'])->name('users.show');
+
+        // Send Appeal to Admin
         Route::post('competitions/{competition}/appeal', [UserAppealController::class, 'store'])->name('users.appeal');
         Route::delete('competitions/{competition}/appeal', [UserAppealController::class, 'destroy'])->name('users.appeal');
         
