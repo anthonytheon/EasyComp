@@ -92,7 +92,19 @@ class UserManagementController extends Controller
             'major' => 'required',
         ]);
 
-        $user->update($data);
+        //$user->update($data);
+        $password = $request->get('password');
+
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = Hash::make($password);
+        $user->id_number = $request->get('id_number');
+        $user->gender = $request->get('gender');
+        $user->year_start = $request->get('year_start');
+        $user->university = $request->get('university');
+        $user->faculty = $request->get('faculty');
+        $user->major = $request->get('major');
+        $user->save();
   
         return redirect()->route('user-management.index')->with('success', 'User updated successfully');
     }

@@ -15,7 +15,7 @@
                   <div class="md:w-auto">
                     <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
                     focus:outline-none focus:bg-white focus:border-purple-500" id="major_name" name="major_name" type="text" placeholder="Major name"
-                    @error('name') is-invalid @enderror required">
+                    value="{{ $major->major_name }}"@error('name') is-invalid @enderror required">
 
                     @error('name')
                     <div class="invalid-feedback text-red-600">

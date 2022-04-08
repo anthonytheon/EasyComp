@@ -47,20 +47,17 @@ class DatabaseSeeder extends Seeder
 
         Category::create([
             'name' => 'Machine Learning',
-            'description' => 'Machine learning (ML) is the study of computer algorithms that can improve automatically 
-            through experience and by the use of data. It is seen as a part of artificial intelligence.'
+            'description' => 'Machine learning (ML) is the study of computer algorithms that can improve automatically through experience and by the use of data. It is seen as a part of artificial intelligence.'
         ]); 
 
         Category::create([
             'name' => 'Game Development',
-            'description' => 'Game Development is the art of creating games and describes the design, development and release of a game. 
-            It may involve concept generation, design, build, test and release.'
+            'description' => 'Game Development is the art of creating games and describes the design, development and release of a game. It may involve concept generation, design, build, test and release.'
         ]);
 
         Category::create([
             'name' => 'Web Development',
-            'description' => 'Web development is the work involved in developing a website for the Internet (World Wide Web) or an 
-            intranet (a private network).'
+            'description' => 'Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet (a private network).'
         ]);
 
         Faculty::create([

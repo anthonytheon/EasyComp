@@ -15,7 +15,7 @@
                   <div class="md:w-2/3">
                     <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
                     focus:outline-none focus:bg-white focus:border-purple-500" id="name" name="name" type="text" placeholder="Category name"
-                    @error('name') is-invalid @enderror required">
+                    value="{{ $category->name }}"@error('name') is-invalid @enderror required">
 
                     @error('name')
                     <div class="invalid-feedback text-red-600">
@@ -35,7 +35,7 @@
                     <div class="md:w-2/3">
                       <textarea class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
                       focus:outline-none focus:bg-white focus:border-purple-500" cols="100" rows="7" id="description" name="description" placeholder="Category Description"
-                      @error('description') is-invalid @enderror required"></textarea>
+                      @error('description') is-invalid @enderror required">{{ $category->description }}</textarea>
   
                       @error('description')
                       <div class="invalid-feedback text-red-600">

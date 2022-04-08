@@ -33,10 +33,13 @@
                                     <div class="flex items-center pl-5">
                                         <p class="text-lg font-medium leading-none text-gray-700 mr-40">{{ $category->name }}</p>
                                     </div>
+                            
+                                    <p class="mt-2 pl-5 pr-20 text-sm font-small leading-none text-gray-700 mr-40">{{ $category->description }}</p>
                                 </td>
                                 
                                 <td>
                                     <a href="{{ route('categories.show', $category) }}" class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">View</a>
+                                    
                                 </td>
                                 <td>
                                     <a href="{{ route('categories.edit', $category) }}" class="focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 text-sm leading-none text-blue-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">Edit</a>
