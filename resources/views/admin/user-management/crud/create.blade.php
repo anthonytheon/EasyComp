@@ -157,7 +157,7 @@
                         <div class="inline-block relative w-64">
                             <select name="faculty" class="block appearance-none text-gray-700 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                             @foreach ($faculties as $faculty)
-                                <option>{{ $faculty->faculty_name }}</option>
+                                <option value="{{ $faculty->id }}">{{ $faculty->faculty_name }}</option>
                             @endforeach
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -178,7 +178,7 @@
                         <div class="inline-block relative w-64">
                             <select name="major" class="block appearance-none text-gray-700 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                             @foreach ($majors as $major)
-                                <option>{{ $major->major_name }}</option>
+                                <option value="{{ $major->id }}">{{ $major->major_name }}</option>
                             @endforeach
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -188,26 +188,6 @@
                           </div>
                     </div>
                 </div>
-
-                  {{-- <div class="md:flex md:items-center mb-6">
-                    <div class="md:w-1/3">
-                      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="description">
-                          Description
-                      </label>
-                    </div>
-                    <div class="md:w-2/3">
-                      <textarea class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
-                      focus:outline-none focus:bg-white focus:border-purple-500" cols="100" rows="7" id="description" name="description" placeholder="Your Description"
-                      @error('description') is-invalid @enderror required"></textarea>
-  
-                      @error('description')
-                      <div class="invalid-feedback text-red-600">
-                          {{ $message }}
-                      </div>
-                      @enderror
-  
-                    </div>
-                  </div> --}}
 
                 <div class="md:flex md:items-center">
                   <div class="md:w-1/3"></div>

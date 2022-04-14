@@ -8,6 +8,7 @@ use App\Models\Faculty;
 use App\Models\Major;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserManagementController extends Controller
 {
@@ -74,7 +75,18 @@ class UserManagementController extends Controller
 
     public function show(User $user)
     {
-        return view('admin.user-management.crud.show', compact('user'));
+        $users_faculty = $user->faculty;
+        $users_major = $user->major;
+        $faculty = Faculty::select('faculty_name')
+                           ->where('id', '=', $users_faculty)
+                           ->first();
+
+        $major = Major::select('major_name')
+                           ->where('id', '=', $users_major)
+                           ->first();
+                           
+        //dd($faculty);
+        return view('admin.user-management.crud.show', compact('user', 'faculty', 'major'));
     }
 
     

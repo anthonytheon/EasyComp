@@ -15,7 +15,20 @@ class Appeal extends Model
     // dont forget SoftDeletes
 
     protected $fillable = [
-        'user_id', 'appeal_status', 'user_name'
+        'user_id', 
+        'appeal_status', 
+        'user_name', 
+        'participant1_name', 
+        'participant2_name', 
+        'participant3_name', 
+        'participant4_name',
+        'participant5_name', 
+        'participant1_university',
+        'participant2_university',
+        'participant3_university',
+        'participant4_university',
+        'participant5_university',
+        'supervisor_name',  
     ];
 
     public function competition()

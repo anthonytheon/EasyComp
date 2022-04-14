@@ -5,7 +5,7 @@
         <div class="max-w-screen-lg mx-auto">
             <h3 class="text-4xl text-center text-gray-200 mb-6 mt-16">{{ $competition->name }}</h3>
 
-            <img src="{{ asset('images/' . $competition->poster) }}" class="object-contain h-48 w-96 mb-8 mt-8 shadow-xl" alt="">
+            <img src="{{ asset('images/' . $competition->poster) }}" class="mx-auto object-contain h-48 w-96 mb-8 mt-8 shadow-xl" alt="">
             
             <h4 class="text-lg text-center text-gray-200 mb-6">Due date : {{ $competition->date }}</h3>
             <p class="text-xl mb-3">
@@ -23,37 +23,82 @@
 
                 <h4 class="text-lg text-left text-gray-200 mb-6 mt-14">Participants</h3>
 
-                <div class="flex flex-col">
-                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
-                            <div class="overflow-hidden shadow-md sm:rounded-lg">
-                                <table class="min-w-full">
-                                    <thead class="bg-gray-50 dark:bg-gray-700">
-                                        <tr>
-                                            <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                                Name
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Product 1 -->
-                                        @foreach ($competition->appeals as $appeal)
-                                        @if ($appeal->appeal_status == 1)
-                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    {{ $appeal->user_name }}
-                                                </td>
+                    @foreach ($competition->appeals as $appeal)
+                    @if ($appeal->appeal_status == 1)
+                    <div class="flex flex-col">
+                        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
+                                <div class="overflow-hidden shadow-md sm:rounded-lg">
+                                    <table class="min-w-full">
+                                        <thead class="bg-gray-50 dark:bg-gray-700">
+                                            <tr>
+                                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                    Supervisor :
+                                                </th>
+                                                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                    {{ $appeal->supervisor_name }}
+                                                </th>
+                                                
                                             </tr>
-                                        @endif
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Product 1 -->
+                                            
+                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant1_name }}
+                                                    </td>
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant1_university }}
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant2_name }}
+                                                    </td>
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant2_university }}
+                                                    </td>
+                                                </tr>
+    
+                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant3_name }}
+                                                    </td>
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant3_university }}
+                                                    </td>
+                                                </tr>
+    
+                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant4_name }}
+                                                    </td>
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant4_university }}
+                                                    </td>
+                                                </tr>
+    
+                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant5_name }}
+                                                    </td>
+                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        {{ $appeal->participant5_university }}
+                                                    </td>
+                                                </tr>
+    
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    @endif
+                    @endforeach
 
-                
+                {{-- END OF ACCEPTED APPEALS --}}
 
                 {{-- PENDING APPEALS --}}
 
@@ -65,6 +110,8 @@
                 @endif
 
                 <h4 class="text-lg text-left text-gray-200 mb-6 mt-4">Pending requests</h3>
+                @foreach ($competition->appeals as $appeal)
+                @if ($appeal->appeal_status == 0)
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
@@ -75,10 +122,16 @@
                                             <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                                 Name
                                             </th>
-                                    
-                                            <th scope="col" class="relative py-3 px-6">
-                                                <span class="sr-only">Accept</span>
+                                            <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                University
                                             </th>
+                                            <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                Supervisor
+                                            </th>
+                                    
+                                            {{-- <th scope="col" class="relative py-3 px-6">
+                                                <span class="sr-only">Accept</span>
+                                            </th> --}}
 
                                             <th scope="col" class="relative py-3 px-6">
                                                 <span class="sr-only">Reject</span>
@@ -87,18 +140,36 @@
                                     </thead>
                                     <tbody>
                                         <!-- Product 1 -->
-                                        @foreach ($competition->appeals as $appeal)
-                                        @if ($appeal->appeal_status == 0)
+                                        
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                                 <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    {{ $appeal->user_name }}
+                                                    {{ $appeal->participant1_name }}
                                                 </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant1_university }}
+                                                </td>
+                                                
+                                                
                                                 <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                    <a href="{{ route('admins.show', $appeal) }}" class="text-blue-600 dark:text-blue-500 hover:underline">Accept</a>
+                                                    <form action="{{ route('admins.store', $appeal) }}" method="POST">
+                                                        @csrf
+                                                        <input type="text" id="supervisor_name" name="supervisor_name" class="bg-transparent mr-12 px-4 py-2 w-64 text-gray-900" placeholder="Supervisor name...
+                                                        @error('supervisor_name') is-invalid @enderror required">
+
+                                                        @error('supervisor_name')
+                                                        <div class="mx-auto invalid-feedback text-red-600">
+                                                            {{ $message }}
+                                                        </div>
+                                                        @enderror
+                                                        <button type="submit" class="bg-transparent hover:text-blue-900 text-blue-500 font-semibold hover:text-blue py-2 px-4">
+                                                            Accept
+                                                        </button>
+                                                    </form>
+                                                    
+                                                    {{-- <a href="{{ route('admins.show', $appeal) }}" class="text-blue-600 dark:text-blue-500 hover:underline">Accept</a> --}}
                                                 </td>
                                                 
                                                 <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                    {{-- <a href="#" class="text-red-600 dark:text-red-500 hover:underline">Reject</a> --}}
                                                     <form action="{{ route('admins.destroy', $appeal->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -108,19 +179,84 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        @endif
-                                        @endforeach
+                                            
+                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant2_name }}
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant2_university }}
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    
+                                                </td>
+                                                
+                                            </tr>
+
+                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant3_name }}
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant3_university }}
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    
+                                                </td>
+                                                
+                                            </tr>
+
+                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant4_name }}
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant4_university }}
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    
+                                                </td>
+                                                
+                                            </tr>
+
+                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant5_name }}
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $appeal->participant5_university }}
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    
+                                                </td>
+                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    
+                                                </td>
+                                                
+                                            </tr>
+
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+                @endif
+                @endforeach
+                {{-- PENDING APPEALS END --}}
             @else
 
             @endif
-            {{-- PENDING APPEALS END --}}
+            
 
         </div>
     </section>

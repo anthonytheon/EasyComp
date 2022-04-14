@@ -46,10 +46,9 @@ Route::group(['middleware' => 'admin'], function() {
         Route::resource('categories', 'CategoryController');
         Route::resource('majors', 'MajorController');
         Route::resource('faculties', 'FacultyController');
-        //Route::resource('user', 'UserManagementController');
 
         // Accept or Reject User's Appeal
-        Route::get('competitions/{appeal}/accept', [AdminAppealController::class, 'show'])->name('admins.show');
+        Route::post('competitions/{appeal}/accept', [AdminAppealController::class, 'store'])->name('admins.store');
         Route::delete('competitions/{appeal}/reject', [AdminAppealController::class, 'destroy'])->name('admins.destroy');
 
 
@@ -76,6 +75,7 @@ Route::group(['middleware' => 'user'], function() {
         Route::get('competitions/{competition}', [UserController::class, 'show'])->name('users.show');
 
         // Send Appeal to Admin
+        Route::get('competitions/{competition}/create', [UserAppealController::class, 'create'])->name('users.create');
         Route::post('competitions/{competition}/appeal', [UserAppealController::class, 'store'])->name('users.appeal');
         Route::delete('competitions/{competition}/appeal', [UserAppealController::class, 'destroy'])->name('users.appeal');
         

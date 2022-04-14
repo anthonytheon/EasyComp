@@ -3,6 +3,14 @@
 @section('page-content')
     <section class="py-20 min-h-screen flex items-center">
         <div class="max-w-screen-lg mx-auto">
+
+            @if(session()->has('success'))
+                <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 mb-4" role="alert">
+                    <p class="font-bold">{{ session('success') }}</p>
+                    <p class="text-sm pt-2">Congratulations .</p>
+                </div>
+            @endif
+
             <h2 class="text-6xl text-center mb-6">User Dashboard</h2>
             <h3 class="text-4xl text-center text-gray-200 mb-6">Join a Competition !</h3>
             
@@ -38,7 +46,7 @@
                         @endforeach
                         {{-- {{ $competitions->links() }} --}}
                     @else
-                        <h4 class="text-lg text-center text-gray-200 mb-6 mt-14">There are no competitions</h3>
+                        <h4 class="text-lg text-center text-gray-200 mb-6 ml-20 mt-14">There are no competitions</h3>
                     @endif
 
                 </div>

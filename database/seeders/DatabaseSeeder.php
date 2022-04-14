@@ -41,8 +41,8 @@ class DatabaseSeeder extends Seeder
             'gender' => 'Other',
             'year_start' => '2021',
             'university' => 'Ciputra University',
-            'faculty' => 'Information Technology',
-            'major' => 'IMT',
+            'faculty' => 1,
+            'major' => 1,
         ]);
 
         Category::create([

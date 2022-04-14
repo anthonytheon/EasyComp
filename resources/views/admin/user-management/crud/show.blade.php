@@ -72,11 +72,11 @@
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Faculty</div>
-                            <div class="px-4 py-2">{{ $user->faculty }}</div>
+                            <div class="px-4 py-2">{{ $faculty['faculty_name'] }}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Major</div>
-                            <div class="px-4 py-2">{{ $user->major }}</div>
+                            <div class="px-4 py-2">{{ $major['major_name'] }}</div>
                         </div>
                     </div>
                 </div>

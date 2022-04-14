@@ -12,6 +12,13 @@
 
             <div class="flex flex-col justify-center items-center">
                 @if (!$competition->appealedBy(auth()->user()))
+                    <div class="text-center">
+                        <a href="{{ route('users.create', $competition) }}" class="mt-6 inline-block bg-pink-500 text-center py-2 px-4 rounded hover:bg-purple-500 transition">Create Form Request</a>
+                    </div>
+                @else
+                    
+                @endif
+                {{-- @if (!$competition->appealedBy(auth()->user()))
                     <form action="{{ route('users.appeal', $competition) }}" method="post" class="mr-1">
                         @csrf
                         <button type="submit" class="bg-pink-500 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">
@@ -22,14 +29,14 @@
 
                     {{-- <h4 class="text-lg text-center text-gray-200 mb-6 mt-14">Your request is on pending</h3> --}}
                     
-                    <form action="{{ route('users.appeal', $competition) }}" method="post" class="mr-1">
+                    {{-- <form action="{{ route('users.appeal', $competition) }}" method="post" class="mr-1">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-pink-500 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded">
                             Cancel Request
                         </button>
-                    </form>
-                @endif
+                    </form> --}}
+                {{-- @endif --}}
             </div>
         
         </div>

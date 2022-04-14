@@ -11,9 +11,15 @@ use Illuminate\Support\Facades\DB;
 
 class AdminAppealController extends Controller
 {
-    public function show(Appeal $appeal)
+    public function store(Appeal $appeal, Request $request)
     {
+        $request->validate([
+            'supervisor_name' => 'required',
+        ]);
+
+        
         $appeal->appeal_status = 1;
+        $appeal->supervisor_name = $request->input('supervisor_name');
         $appeal->save();
 
         //dd($appeal);
