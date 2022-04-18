@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $competitions = Competition::latest()->paginate(5);
+        $competitions = Competition::latest()->paginate(6);
 
         return view('user.dashboard', compact('competitions'));
     }

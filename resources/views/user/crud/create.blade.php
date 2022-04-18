@@ -7,7 +7,7 @@
             <form class="w-full max-w-lg" method="POST" enctype="multipart/form-data" action="{{ route('users.appeal', $competition) }}">
                 @csrf
 
-                <h5 class="text-2xl text-center text-gray-200 mb-6">Participant 1</h5>
+                <h5 class="text-2xl text-center text-gray-200 mb-6 mt-4">Participant 1</h5>
 
                 {{-- START OF PARTICIPANT 1--}}
                 <div class="md:flex md:items-center mb-6">
@@ -52,7 +52,8 @@
                 </div>
                 {{-- END OF PARTICIPANT 1--}}
 
-                <h5 class="text-2xl text-center text-gray-200 mb-6">Participant 2</h5>
+                <h5 class="text-2xl text-center text-gray-200 mb-6 mt-24">Participant 2</h5>
+                <h5 class="text-sm text-center text-gray-200 mb-6">( optional )</h5>
 
                 {{-- START OF PARTICIPANT 2--}}
                 <div class="md:flex md:items-center mb-6">
@@ -97,7 +98,8 @@
                 </div>
                 {{-- END OF PARTICIPANT 2--}}
 
-                <h5 class="text-2xl text-center text-gray-200 mb-6">Participant 3</h5>
+                <h5 class="text-2xl text-center text-gray-200 mb-6 mt-24">Participant 3</h5>
+                <h5 class="text-sm text-center text-gray-200 mb-6">( optional )</h5>
                 
                 {{-- START OF PARTICIPANT 3--}}
                 <div class="md:flex md:items-center mb-6">
@@ -142,7 +144,8 @@
                 </div>
                 {{-- END OF PARTICIPANT 3--}}
 
-                <h5 class="text-2xl text-center text-gray-200 mb-6">Participant 4</h5>
+                <h5 class="text-2xl text-center text-gray-200 mb-6 mt-24">Participant 4</h5>
+                <h5 class="text-sm text-center text-gray-200 mb-6">( optional )</h5>
 
                 {{-- START OF PARTICIPANT 4--}}
                 <div class="md:flex md:items-center mb-6">
@@ -187,7 +190,8 @@
                 </div>
                 {{-- END OF PARTICIPANT 4--}}
 
-                <h5 class="text-2xl text-center text-gray-200 mb-6">Participant 5</h5>
+                <h5 class="text-2xl text-center text-gray-200 mb-6 mt-24">Participant 5</h5>
+                <h5 class="text-sm text-center text-gray-200 mb-6">( optional )</h5>
 
                 {{-- START OF PARTICIPANT 5--}}
                 <div class="md:flex md:items-center mb-6">

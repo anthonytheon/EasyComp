@@ -19,7 +19,7 @@ class CreateCompetitionsTable extends Migration
             $table->string('name');
             $table->string('category');
             $table->date('date');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }

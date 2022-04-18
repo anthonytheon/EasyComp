@@ -30,15 +30,15 @@ class UserAppealController extends Controller
 
         $request->validate([
             'participant1_name' => 'required',
-            'participant2_name' => 'nullable',
-            'participant3_name' => 'nullable',
-            'participant4_name' => 'nullable',
-            'participant5_name' => 'nullable',
+            'participant2_name' => 'string|max:255|nullable',
+            'participant3_name' => 'string|max:255|nullable',
+            'participant4_name' => 'string|max:255|nullable',
+            'participant5_name' => 'string|max:255|nullable',
             'participant1_university' => 'required',
-            'participant2_university' => 'nullable',
-            'participant3_university' => 'nullable',
-            'participant4_university' => 'nullable',
-            'participant5_university' => 'nullable',
+            'participant2_university' => 'string|max:255|nullable',
+            'participant3_university' => 'string|max:255|nullable',
+            'participant4_university' => 'string|max:255|nullable',
+            'participant5_university' => 'string|max:255|nullable',
             
         ]);
 

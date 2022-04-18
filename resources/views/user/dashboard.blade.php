@@ -13,6 +13,9 @@
 
             <h2 class="text-6xl text-center mb-6">User Dashboard</h2>
             <h3 class="text-4xl text-center text-gray-200 mb-6">Join a Competition !</h3>
+            <div clsas="mr-2">
+                {{ $competitions->links() }}
+            </div>
             
             <!-- component -->
             <div class="container mx-auto p-8">
@@ -44,18 +47,20 @@
                             </div>
                         </div>
                         @endforeach
-                        {{-- {{ $competitions->links() }} --}}
+                        
                     @else
                         <h4 class="text-lg text-center text-gray-200 mb-6 ml-20 mt-14">There are no competitions</h3>
                     @endif
 
                 </div>
+                
+                
             </div>
-
 
             <div class="text-center">
                 <a href="{{ route('home') }}" class="inline-block bg-pink-500 text-center py-2 px-4 rounded hover:bg-purple-500 transition">Go Home </a>
             </div>
         </div>
+
     </section>
 @endsection

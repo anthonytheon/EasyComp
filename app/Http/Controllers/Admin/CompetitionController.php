@@ -47,7 +47,7 @@ class CompetitionController extends Controller
             'name' => 'required|max:100',
             'category' => 'required',
             'date' => 'required',
-            'description' => 'required|max:255',
+            'description' => 'required|max:1000',
             'poster' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
@@ -106,7 +106,7 @@ class CompetitionController extends Controller
             'name' => 'required|max:255',
             'category' => 'required',
             'date' => 'required|max:255',
-            'description' => 'required|max:255', 
+            'description' => 'required|max:1000', 
             'poster' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
