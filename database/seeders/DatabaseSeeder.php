@@ -47,19 +47,29 @@ class DatabaseSeeder extends Seeder
 
         Category::create([
             'name' => 'Machine Learning',
-            'description' => 'Machine learning (ML) is the study of computer algorithms that can improve automatically through experience and by the use of data. 
-            It is seen as a part of artificial intelligence.'
+            'description' => 'Machine learning is a branch of artificial intelligence (AI) and computer science which focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy.
+
+            Machine learning is an important component of the growing field of data science. Through the use of statistical methods, algorithms are trained to make classifications or predictions, uncovering key insights within data mining projects. These insights subsequently drive decision making within applications and businesses, ideally impacting key growth metrics. As big data continues to expand and grow, the market demand for data scientists will increase, requiring them to assist in the identification of the most relevant business questions and subsequently the data to answer them.'
         ]); 
 
         Category::create([
             'name' => 'Game Development',
-            'description' => 'Game Development is the art of creating games and describes the design, development and release of a game. 
-            It may involve concept generation, design, build, test and release.'
+            'description' => 'Game Development is the art of creating games and describes the design, development and release of a game. It may involve concept generation, design, build, test and release. While you create a game, it is important to think about the game mechanics, rewards, player engagement and level design.
+
+            A game developer could be a programmer, a sound designer, an artist, a designer or many other roles available in the industry.
+            
+            Game Development can be undertaken by a large Game Development Studio or by a single individual. It can be as small or large as you like. As long as it lets the player interact with content and is able to manipulate the game’s elements, you can call it a ‘game’.'
         ]);
 
         Category::create([
             'name' => 'Web Development',
-            'description' => 'Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet (a private network).'
+            'description' => 'Web development is the building and maintenance of websites; it’s the work that happens behind the scenes to make a website look great, work fast and perform well with a seamless user experience.
+
+            Web developers, or ‘devs’, do this by using a variety of coding languages. The languages they use depends on the types of tasks they are preforming and the platforms on which they are working.
+            
+            Web development skills are in high demand worldwide and well paid too – making development a great career option. It is one of the easiest accessible higher paid fields as you do not need a traditional university degree to become qualified.
+            
+            The field of web development is generally broken down into front-end (the user-facing side) and back-end (the server side). Let’s delve into the details.'
         ]);
 
         Faculty::create([

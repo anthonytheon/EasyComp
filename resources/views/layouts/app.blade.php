@@ -20,7 +20,7 @@
         <div class="container mx-auto flex justify-between p-4">
             <h1 class="text-xl font-black">EasyComp</h1>
                 <nav class="-mx-2">
-                    <a href="{{ route('home') }}" class="text-lg mx-2 text-white hover:text-pink-500 transition">Home</a>
+                    <a href="{{ route('home.index') }}" class="text-lg mx-2 text-white hover:text-pink-500 transition">Home</a>
                     <a href="{{ route('about') }}" class="text-lg mx-2 text-white hover:text-pink-500 transition">About</a>
  
                     @auth

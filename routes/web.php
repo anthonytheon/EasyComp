@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -20,9 +21,6 @@ use App\Http\Controllers\Admin\UserManagementController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
 
 Route::get('/about', function () {
     return view('about');
@@ -35,6 +33,13 @@ Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 
 Route::get('register', [\App\Http\Controllers\Auth\RegisterController::class, 'index'])->middleware('guest')->name('register');
 Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'store'])->name('store');
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home.index');
+    Route::get('/category/{category}', 'category')->name('home.category');
+    Route::get('/competition/{competition}', 'competition')->name('home.competition');
+    //Route::post('/orders', 'store');
+});
 
 Route::group(['middleware' => 'admin'], function() {
     Route::group([
