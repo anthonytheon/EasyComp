@@ -56,6 +56,7 @@
                         
                     </tbody>
                 </table>
+                {{ $faculties->links() }}
                 @else
                     <h4 class="text-lg text-center text-gray-900 mb-6 mt-14">There are no faculties yet.</h4>
                 @endif

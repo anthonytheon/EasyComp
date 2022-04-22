@@ -17,11 +17,8 @@
             <h3 class="text-4xl font-bold mb-6">Introduction</h3>
             <h4 class="text-xl mb-3 text-gray-200">Short Description</h4>
             <p class="mb-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Quis et quo porro, facilis eligendi nostrum hic totam fugiat minima sunt 
-                vel possimus amet reprehenderit labore nobis mollitia atque soluta magnam 
-                consequatur, velit, beatae cum aspernatur eveniet distinctio. 
-                Alias consectetur quo nam officia? Impedit placeat id ipsum assumenda minus error sunt?
+                EasyComp is a comprehension competition management website that helps you create, record contests and competition digitally, 
+                and manage competition administration all in one beautiful place. Save days on admin and grow your impact.
             </p>
             <a href="{{ route('about') }}" class="bg-pink-500 text-center py-2 px-4 rounded hover:bg-purple-500 
             transition">Learn more</a>
@@ -36,9 +33,8 @@
                     <div class="p-4 bg-gray-500 h-full rounded-lg">
                         <h3 class="text-xl font-bold mb-3">Machine Learning</h3>
                         <p class="text-gray-200 mb-3">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                            Assumenda dolor ipsam provident maiores consequatur. 
-                            Officiis ducimus doloribus fuga mollitia aperiam.
+                            Machine learning (ML) is the study of computer algorithms that can improve automatically through experience and by the use of data. 
+                            It is seen as a part of artificial intelligence.
                         </p>
                         <a href="{{ url('https://thebiggestnose.com') }}" target="_blank" rel="noopener noreferrer"
                         class="bg-pink-500 text-center py-2 px-4 
@@ -48,11 +44,10 @@
 
                 <div class="w-full sm:w-1/2 mb-3 px-2">
                     <div class="p-4 bg-gray-500 h-full rounded-lg">
-                        <h3 class="text-xl font-bold mb-3">Computer Vision</h3>
+                        <h3 class="text-xl font-bold mb-3">Game Development</h3>
                         <p class="text-gray-200 mb-3">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                            Assumenda dolor ipsam provident maiores consequatur. 
-                            Officiis ducimus doloribus fuga mollitia aperiam.
+                            Game Development is the art of creating games and describes the design, development and release of a game. 
+                            It may involve concept generation, design, build, test and release.
                         </p>
                         <a href="{{ url('https://thebiggestnose.com') }}" target="_blank" rel="noopener noreferrer"
                         class="bg-pink-500 text-center py-2 px-4 

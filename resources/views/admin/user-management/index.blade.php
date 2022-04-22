@@ -28,7 +28,6 @@
                         {{-- TABLE ROW START --}}
                         
                         @foreach ($users as $user)
-                        @if ($user->role_id == 2)
                             <tr tabindex="0" class="focus:outline-none h-16 border border-gray-100 rounded">
                                 <td>
                                     <div class="flex items-center pl-5">
@@ -63,7 +62,6 @@
                                 </td>
                             </tr>
                             <tr class="h-3"></tr>
-                        @endif
                         @endforeach
                         
 
@@ -73,6 +71,7 @@
                         
                     </tbody>
                 </table>
+                {{ $users->links() }}
                 @else
                     <h4 class="text-lg text-center text-gray-900 mb-6 mt-14">There are no users yet.</h4>
                 @endif

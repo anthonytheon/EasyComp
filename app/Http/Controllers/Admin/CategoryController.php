@@ -40,7 +40,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|max:100',
-            'description' => 'required|max:255',
+            'description' => 'required|max:2000',
         ]);
 
         $category = Category::create([

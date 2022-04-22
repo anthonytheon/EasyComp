@@ -17,7 +17,7 @@
 
             
 
-            <div class="absolute bottom-0 left-0 right-0 p-20">
+            <div class="absolute bottom-0 left-0 right-0 p-20 mt-20">
                 <p class="text-center">Scroll to learn more</p>
             </div>
         </div>
@@ -33,11 +33,14 @@
 
                 {{-- ACCEPTED APPEALS --}}
 
-                <h4 class="text-lg text-left text-gray-200 mb-6 mt-14">Participants</h4>
+                {{-- <h4 class="text-lg text-left text-gray-200 mb-6 mt-14">Participants</h4> --}}
+                @if ($accepted_appeals_count > 0)
+                <h4 class="title text-5xl md:text-7xl lg:text-7xl max-w-[720px] mb-6">Participants</h4>
+                @endif
 
                     @foreach ($competition->appeals as $appeal)
                     @if ($appeal->appeal_status == 1)
-                    <div class="flex flex-col">
+                    <div class="mt-20 flex flex-col">
                         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                                 <div class="overflow-hidden shadow-md sm:rounded-lg">
@@ -135,7 +138,12 @@
                     </div>
                 @endif
 
-                <h4 class="text-lg text-left text-gray-200 mb-6 mt-4">Pending requests</h3>
+
+            @if ($pending_appeals_count > 0)
+                {{-- <h4 class="text-lg text-left text-gray-200 mb-6 mt-4">Pending requests</h3> --}}
+                <h4 class="title text-5xl md:text-7xl lg:text-7xl max-w-[720px] mt-96 mb-6">Pending requests</h3>
+            @endif
+                    
                     
 
                 @foreach ($competition->appeals as $appeal)
@@ -145,7 +153,7 @@
                         {{ $message }}
                     </div>
                     @enderror
-                <div class="flex flex-col">
+                <div class="mt-20 flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                             <div class="overflow-hidden shadow-md sm:rounded-lg">
@@ -292,6 +300,7 @@
                 </div>
                 @endif
                 @endforeach
+            
                 {{-- PENDING APPEALS END --}}
             @else
 

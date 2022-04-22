@@ -14,7 +14,11 @@ class UserManagementController extends Controller
 {
     public function index()
     {
-        $users = User::latest()->paginate(5);
+        // $users = User::latest()->paginate(5)
+        // ->where('role_id', '=', 2);
+
+        $users = User::where('role_id', 2)
+        ->orderBy('created_at', 'DESC')->paginate(5);
 
         return view('admin.user-management.index', compact('users'));
     }

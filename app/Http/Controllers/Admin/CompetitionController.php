@@ -79,7 +79,16 @@ class CompetitionController extends Controller
      */
     public function show(Competition $competition)
     {
-        return view('admin.competition.crud.show', compact('competition'));
+        $comp_id = $competition->id;
+        $accepted_appeals_count = Appeal::where('appeal_status', '=', 1)
+                                  ->where('competition_id', '=', $comp_id)                            
+                                  ->count();
+                                  
+        $pending_appeals_count = Appeal::where('appeal_status', '=', 0)
+        ->where('competition_id', '=', $comp_id)                            
+        ->count();
+
+        return view('admin.competition.crud.show', compact('competition', 'accepted_appeals_count', 'pending_appeals_count'));
     }
 
     /**

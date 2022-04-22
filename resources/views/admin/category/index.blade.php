@@ -34,7 +34,7 @@
                                         <p class="text-lg font-medium leading-none text-gray-700 mr-40">{{ $category->name }}</p>
                                     </div>
                             
-                                    <p class="mt-2 pl-5 pr-20 text-sm font-small leading-none text-gray-700 mr-40">{{ $category->description }}</p>
+                                    <p class="mt-2 pl-5 pr-20 text-sm font-small leading-none text-gray-700 mr-40">{{ Str::limit($category->description, 100) }}</p>
                                 </td>
                                 
                                 <td>
@@ -62,6 +62,7 @@
                         
                     </tbody>
                 </table>
+                {{ $categories->links() }}
                 @else
                     <h4 class="text-lg text-center text-gray-900 mb-6 mt-14">There are no categories yet.</h4>
                 @endif
