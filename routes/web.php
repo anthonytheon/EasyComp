@@ -38,7 +38,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home.index');
     Route::get('/category/{category}', 'category')->name('home.category');
     Route::get('/competition/{competition}', 'competition')->name('home.competition');
-    //Route::post('/orders', 'store');
+    
 });
 
 Route::group(['middleware' => 'admin'], function() {
