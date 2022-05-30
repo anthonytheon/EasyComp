@@ -51,9 +51,6 @@
                                     <a href="{{ route('user-management.show', $user) }}" class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">View</a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('user-management.edit', $user->id) }}" class="focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 text-sm leading-none text-blue-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">Edit</a>
-                                </td>
-                                <td>
                                     <form action="{{ route('user-management.destroy', $user->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
